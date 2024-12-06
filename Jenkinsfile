@@ -2,13 +2,14 @@ pipeline {
     agent any
 
     environment {
-        TERRAFORM_HOME = "/usr/bin/terraform" // Adjust as per your Terraform installation
+        AWS_ACCESS_KEY_ID = credentials('aws-credentials')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-credentials')
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/nandeeshnan/terraform_assignment_TAS293.git' // Replace with your repo
+                git branch:'main', url:'https://github.com/nandeeshnan/terraform_assignment_TAS293.git' // Replace with your repo
             }
         }
 
