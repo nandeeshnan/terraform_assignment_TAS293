@@ -13,11 +13,10 @@ resource "aws_instance" "public_instance" {
 
   user_data = <<-EOF
               #!/bin/bash
-              yum update -y
-              yum install -y nginx
-              systemctl start nginx
-              systemctl enable nginx
-              EOF
+              sudo amazon-linux-extras enable nginx1
+              sudo yum install -y nginx
+              sudo systemctl start nginx
+  EOF
 }
 
 resource "aws_instance" "private_instance" {
