@@ -40,12 +40,6 @@ resource "aws_route_table_association" "public_association" {
 }
 
 
-# Associate Public Subnet with Public Route Table
-resource "aws_route_table_association" "public_association" {
-  subnet_id      = aws_subnet.public_subnet.id
-  route_table_id = aws_route_table.public_route_table.id
-}
-
 # Create Elastic IP for NAT Gateway
 resource "aws_eip" "nat_eip" {
   domain = "vpc"
